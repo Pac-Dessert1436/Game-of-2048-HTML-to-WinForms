@@ -30,7 +30,7 @@ The HTML version of the game is a single-page web application built using HTML5,
 
 The VB.NET WinForms version of the game is a Windows desktop application built using Visual Basic .NET and Windows Forms. It provides a native Windows experience with a focus on performance and ease of use. Key features include __windowed mode__ and:
 - Keyboard controls for tile movement.
-- High-resolution graphics and smooth animations.
+- High-resolution graphics and colorful tiles.
 - Game logic implemented in VB.NET.
 
 ### System Requirements
