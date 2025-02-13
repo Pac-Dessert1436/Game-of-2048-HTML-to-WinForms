@@ -182,7 +182,6 @@ Public Class frmMain
                         Next j
                     Next i
                 Case Else
-                    If e.KeyCode = Keys.Space Then StartNewGame()
                     Exit Sub
             End Select
             For i As Integer = 0 To MaxGridIndex Step 1
@@ -194,6 +193,7 @@ Public Class frmMain
             pnlGrid.Invalidate()
             Exit Sub
         End If
+        If e.KeyCode = Keys.Space Then StartNewGame()
         Dim text As String = $"Your final score is {score}. Thanks for playing."
         Dim caption As String = If(IsVictory, "YOU WIN!", "GAME OVER")
         MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information)
