@@ -118,6 +118,12 @@
         document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("newGameButton").addEventListener("click", newGame);
             document.addEventListener("keydown", (evt) => {
+                if (isGameOver() || isVictory()) {
+                    document
+                        .getElementById(isVictory() ? "victory" : "gameover")
+                        .style.display = "block";
+                    return;
+                }
                 let isBoardMoved = false;
                 const oldBoard = Array.from({ length: 4 }, () => Array(4).fill(0));
                 for (let i = 0; i < 4; i++) {
@@ -147,11 +153,6 @@
                 }
                 if (isBoardMoved) generateNewNumber();
                 updateBoard();
-                if (isGameOver() || isVictory()) {
-                    document
-                        .getElementById(isVictory() ? "victory" : "gameover")
-                        .style.display = "block";
-                }
             });
             document.addEventListener("touchstart", (evt) => {
                 const touch = evt.touches[0];

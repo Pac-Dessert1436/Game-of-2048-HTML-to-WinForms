@@ -138,7 +138,10 @@ Public Class frmMain
     End Sub
 
     Private Sub frmMain_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        Dim oldBoard = CType(board.Clone(), Integer(,)), isBoardMoved As Boolean = False
+        If e.KeyCode = Keys.Space Then StartNewGame()
+
+        Dim oldBoard As Integer(,) = CType(board.Clone(), Integer(,))
+        Dim isBoardMoved As Boolean = False
         If Not (IsGameOver OrElse IsVictory) Then
             Select Case e.KeyCode
                 Case Keys.Up
@@ -193,7 +196,6 @@ Public Class frmMain
             pnlGrid.Invalidate()
             Exit Sub
         End If
-        If e.KeyCode = Keys.Space Then StartNewGame()
         Dim text As String = $"Your final score is {score}. Thanks for playing."
         Dim caption As String = If(IsVictory, "YOU WIN!", "GAME OVER")
         MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information)
